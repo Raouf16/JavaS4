@@ -7,8 +7,8 @@ import text_library.*;
  * It contains the main function used to launch the program.
  */
 public class PlayBlackjack {
-	/*
-	 * Main function. Definitely the place to be
+	/**
+	 * Main function. Takes a random number of card and displays the hand's value
 	 */
 	public static void main(String[] args) {
 		
