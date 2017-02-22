@@ -1,10 +1,15 @@
 package quiz;
 
-import questions.AdditionQuestion;
-import questions.SubstractionQuestion;
-import utils.TextIO;
+import intPackage.IntQuestions;
+import questionsImplementation.AdditionQuestion;
+import questionsImplementation.SubstractionQuestion;
+import textLibrary.TextIO;
 
-public class QuizObject {
+/**
+ * This class builds a quizz, administers it and gives user a grade
+ *
+ */
+public class Quizz {
 	private static IntQuestions[] questions;  // The questions for the quiz
 
     private static int[] userAnswers;   // The user's answers to the ten questions.
@@ -26,7 +31,7 @@ public class QuizObject {
      */
     private static void createQuiz() {
         questions = new IntQuestions [10];
-        for ( int i = 0; i < 10; i++ ) {
+        for ( int i = 0; i < 7; i++ ) {
         	int a = (int)(Math.random()+0.5);
         	if (a == 0) {
         		questions[i] = new SubstractionQuestion();
@@ -35,6 +40,38 @@ public class QuizObject {
         		questions[i] = new AdditionQuestion();
         	}
         }
+        
+      questions[7] = new IntQuestions() {
+            @Override
+			public String getQuestion() {
+                return "How many specialization are there in Dauphine's Master MIAGE?";
+            }
+            @Override
+			public int getCorrectAnswer() {
+                return 3;
+            }
+      };
+      questions[8] = new IntQuestions() {
+            @Override
+			public String getQuestion() {
+                return "In what year did the First World War begin?";
+            }
+            @Override
+			public int getCorrectAnswer() {
+                return 1914;
+            }
+      };
+      questions[9] = new IntQuestions() {
+            @Override
+			public String getQuestion() {
+                return "What is the answer to the ultimate question " +
+                              "of life, the universe, and everything?";
+            }
+            @Override
+			public int getCorrectAnswer() {
+                return 42;
+            }
+      };
     }
     
     
@@ -82,3 +119,4 @@ public class QuizObject {
         System.out.println();
     }
 }
+
